@@ -75,6 +75,6 @@ app.get('/', (req, res) => {
    });
 });
 
-app.listen(port, hostname, () => {
+app.listen(process.env.PORT ||  port, hostname, () => {
    console.log(`The server is running at http://${hostname}:${port}`);
 });
