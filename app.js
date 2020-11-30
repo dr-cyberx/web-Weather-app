@@ -5,8 +5,10 @@ const https = require('https');
 // const hostname = '127.0.0.1';
 const port = 3000;
 
-
+// Initialize app here
 const app = express();
+
+// Using some essential middleware
 app.set('view engine', 'ejs');
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use('/public', express.static('public'));
@@ -21,6 +23,7 @@ let city1 = '';
 let city2 = '';
 let city3 = '';
 
+// getting data with api url assined above
 https.get(url0, (response0) => {
    response0.on('data', (data) => {
       city0 = JSON.parse(data);
@@ -45,28 +48,35 @@ https.get(url3, (response3) => {
    });
 });
 
+// Making get request on home  route
 app.get('/', (req, res) => {
    res.render('home', {
+
+      // City name here
       mycity1: city0.name,
       mycity2: city1.name,
       mycity3: city2.name,
       mycity4: city3.name,
 
+      // Temperature here
       temp1: city0.main.temp + ' *C',
       temp2: city1.main.temp + ' *C',
       temp3: city2.main.temp + ' *C',
       temp4: city3.main.temp + ' *C',
 
+      // Max Temperature here
       maxtemp1: city0.main.temp_max + ' *C',
       maxtemp2: city1.main.temp_max + ' *C',
       maxtemp3: city2.main.temp_max,
       maxtemp4: city3.main.temp_max,
 
+      // Min temperature here
       mintemp1: city0.main.temp_min + ' *C',
       mintemp2: city1.main.temp_min + ' *C',
       mintemp3: city2.main.temp_min + ' *C',
       mintemp4: city3.main.temp_min + ' *C',
 
+      // Wind speed here
       windspeed1: city0.wind.speed + 'km/hr',
       windspeed2: city1.wind.speed + 'km/hr',
       windspeed3: city2.wind.speed + 'km/hr',
@@ -75,4 +85,6 @@ app.get('/', (req, res) => {
    });
 });
 
+
+// Litening app here
 app.listen(process.env.PORT || port);
