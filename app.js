@@ -1,8 +1,9 @@
 const express = require('express');
 const bodyparser = require('body-parser');
 const https = require('https');
+const { response } = require('express');
 
-// const hostname = '127.0.0.1';
+const hostname = '127.0.0.1';
 const port = 3000;
 
 // Initialize app here
@@ -67,8 +68,8 @@ app.get('/', (req, res) => {
       // Max Temperature here
       maxtemp1: city0.main.temp_max + ' *C',
       maxtemp2: city1.main.temp_max + ' *C',
-      maxtemp3: city2.main.temp_max,
-      maxtemp4: city3.main.temp_max,
+      maxtemp3: city2.main.temp_max + ' *C',
+      maxtemp4: city3.main.temp_max + ' *C',
 
       // Min temperature here
       mintemp1: city0.main.temp_min + ' *C',
@@ -85,6 +86,25 @@ app.get('/', (req, res) => {
    });
 });
 
+app.post('/', function (req, res) {
+   const customCity = req.body.cCity;
+   const customurl = 'https://api.openweathermap.org/data/2.5/weather?q=' + customCity + '&appid=027df142e5b67a54015b3e224ea626cb&units=metric';
+   https.get(customurl, (responsex) => {
+      responsex.on('data', (data) => {
+         customCityData = JSON.parse(data);
+         res.render('result', {
+            customCityName: customCityData.name,
+            customCityTemp: customCityData.main.temp + ' *C',
+            customCityMaxTemp: customCityData.main.temp_max + ' *C',
+            customCityMinTemp: customCityData.main.temp_min + ' *C',
+            customCityWindSpeed: customCityData.wind.speed + 'km/hr'
+         });
+      });
+   });
+});
+
 
 // Litening app here
-app.listen(process.env.PORT || port);
+app.listen(process.env.PORT || port, hostname, () => {
+   console.log(`The server is running at http://${hostname}:${port}`);
+});
