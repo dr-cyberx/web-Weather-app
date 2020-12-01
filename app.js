@@ -3,7 +3,7 @@ const bodyparser = require('body-parser');
 const https = require('https');
 const { response } = require('express');
 
-const hostname = '127.0.0.1';
+// const hostname = '127.0.0.1';
 const port = 3000;
 
 // Initialize app here
@@ -105,6 +105,6 @@ app.post('/', function (req, res) {
 
 
 // Litening app here
-app.listen(process.env.PORT || port, hostname, () => {
+app.listen(process.env.PORT || port,() => {
    console.log(`The server is running at http://${hostname}:${port}`);
 });
