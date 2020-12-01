@@ -8,7 +8,7 @@ body{
 }
 body::before{
    content: "";
-   /* background: url('/public/img/rain2.gif') no-repeat center center / cover; */
+   background: url('/public/img/P-wind.gif') no-repeat center center / cover;
    background-repeat: no-repeat;
    background-size: cover;
    top: 0;
@@ -111,6 +111,14 @@ form{
    text-align: center;
    margin-top: 50px;
 }
+.s1box-1 h3, .s1box-2 h3{
+   margin-bottom: 50px;
+    font-size: 2.2rem;
+}
+.s2box-1 h3, .s2box-2 h3{
+   margin-bottom: 50px;
+    font-size: 2.2rem;
+}
 
 .s2box-1 , .s2box-2{
    width: 40%;
@@ -124,4 +132,25 @@ form{
    color: white;
    text-align: center;
    margin-top: 50px;
+}
+
+.container{
+   width: 800px;
+   border: 2px solid rgb(221, 221, 221);
+   margin: auto;
+   text-align: center;
+   height: 320px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   margin-top: 150px;
+   color: #ffffff;
+   border-radius: 7px;
+   background-color: rgba(0, 0, 0, 0.645);
+   background-blend-mode: screen;
+}
+
+.container h3{
+   margin-bottom: 50px;
+   font-size: 2.2rem;
 }
