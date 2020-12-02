@@ -14,10 +14,11 @@ app.set('view engine', 'ejs');
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use('/public', express.static('public'));
 
+
 const url0 = 'https://api.openweathermap.org/data/2.5/weather?q=london&appid=027df142e5b67a54015b3e224ea626cb&units=metric';
 const url1 = 'https://api.openweathermap.org/data/2.5/weather?q=delhi&appid=027df142e5b67a54015b3e224ea626cb&units=metric';
 const url2 = 'https://api.openweathermap.org/data/2.5/weather?q=paris&appid=027df142e5b67a54015b3e224ea626cb&units=metric';
-const url3 = 'https://api.openweathermap.org/data/2.5/weather?q=tokyo&appid=027df142e5b67a54015b3e224ea626cb&units=metric';
+const url3 = 'https://api.openweathermap.org/data/2.5/weather?q=auckland&appid=027df142e5b67a54015b3e224ea626cb&units=metric';
 
 let city0 = '';
 let city1 = '';
@@ -81,7 +82,13 @@ app.get('/', (req, res) => {
       windspeed1: city0.wind.speed + 'km/hr',
       windspeed2: city1.wind.speed + 'km/hr',
       windspeed3: city2.wind.speed + 'km/hr',
-      windspeed4: city3.wind.speed + 'km/hr'
+      windspeed4: city3.wind.speed + 'km/hr',
+
+      // WEather icon here
+      weatherIcon0 : city0.weather[0].icon,
+      weatherIcon1 : city1.weather[0].icon,
+      weatherIcon2 : city2.weather[0].icon,
+      weatherIcon3 : city3.weather[0].icon,
 
    });
 });
@@ -97,7 +104,8 @@ app.post('/', function (req, res) {
             customCityTemp: customCityData.main.temp + ' *C',
             customCityMaxTemp: customCityData.main.temp_max + ' *C',
             customCityMinTemp: customCityData.main.temp_min + ' *C',
-            customCityWindSpeed: customCityData.wind.speed + 'km/hr'
+            customCityWindSpeed: customCityData.wind.speed + 'km/hr',
+            CustomWeatherIcon : customCityData.weather[0].icon
          });
       });
    });

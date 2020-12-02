@@ -5,6 +5,7 @@
 }
 body{
    height: 100vh;
+   overflow-y: scroll;
 }
 body::before{
    content: "";
@@ -13,7 +14,7 @@ body::before{
    background-size: cover;
    top: 0;
    right: 0;
-   height: 100%;
+   height: 110vh;
    width: 100%;
    opacity: 1;
    position: absolute;
@@ -40,6 +41,17 @@ body::before{
    color: white;
    font-family: 'Sansita Swashed', cursive;
 }
+.logo h2 a{
+   text-decoration: none;
+   color: rgb(255, 255, 255);
+   transition: color 0.2s ease-in-out;
+}
+
+.logo h2 a:hover{
+   color: rgb(255, 255, 255);
+   text-shadow: 0.2px 0.2px 5px rgb(55, 55, 55);
+}
+
 form{
    width: 50%;
    /* border: 2px solid red; */
@@ -99,8 +111,8 @@ form{
    height: 360px;
 }
 .s1box-1 , .s1box-2{
-   width: 40%;
-   height: 80%;
+   width: 35%;
+   height: 70%;
    border: 2px solid rgb(221, 221, 221);
    display: flex;
    flex-direction: column;
@@ -113,13 +125,12 @@ form{
    border-radius: 7px;
 }
 .s1box-1 h3, .s1box-2 h3{
-   margin-bottom: 50px;
     font-size: 2.2rem;
 }
 
 .s2box-1 , .s2box-2{
-   width: 40%;
-   height: 80%;
+   width: 35%;
+   height: 70%;
    border: 2px solid rgb(221, 221, 221);
    display: flex;
    flex-direction: column;
@@ -132,10 +143,13 @@ form{
    border-radius: 7px;
 }
 .s2box-1 h3, .s2box-2 h3{
-   margin-bottom: 50px;
     font-size: 2.2rem;
 }
 
+.s-header{
+   display: flex;
+   justify-content: space-around;
+}
 .container{
    width: 800px;
    border: 2px solid rgb(221, 221, 221);
@@ -155,4 +169,38 @@ form{
 .container h3{
    margin-bottom: 50px;
    font-size: 2.2rem;
+}
+.aboutweather{
+
+}
+/* .footer{
+   height: 70px;
+   display: flex;
+   border: 2px solid red;
+   flex-direction: column;
+   justify-content: center;
+   text-align: center;
+   padding: 20px;
+   background-color: rgb(4, 4, 4 , 0.6);
+   box-shadow: 0.2px 0.2px 5px rgb(17, 17, 17);
+   margin-top: 44px;
+   position: botttom;
+   color: white;
+   position: fixed;
+   width: 100%;
+   bottom: -110px;
+} */
+.footer{
+   background-color: rgb(4, 4, 4 , 0.6);
+   box-shadow: 0.2px 0.2px 5px rgb(17, 17, 17);
+      padding-top: 10px;
+      padding-bottom: 0px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position:fixed;
+      bottom:0;
+      width:100%;
 }

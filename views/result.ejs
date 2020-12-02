@@ -1,7 +1,10 @@
 <%- include('header'); -%>
 
 <div class="container">
-   <h3>City : <%= customCityName %> </h3>
+   <div class="s-header">
+      <h3>City : <%= customCityName %> </h3>
+      <img src="http://openweathermap.org/img/wn/<%= CustomWeatherIcon %>@2x.png" alt="img not found">
+   </div>
    <p>Temperature : <%= customCityTemp %></p>
    <p>Max-temp : <%= customCityMaxTemp %></p>
    <p>Min-temp : <%= customCityMinTemp %></p>
