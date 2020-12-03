@@ -2,6 +2,7 @@ const express = require('express');
 const bodyparser = require('body-parser');
 const https = require('https');
 const { response } = require('express');
+const { hostname } = require('os');
 
 // const hostname = '127.0.0.1';
 const port = 3000;
@@ -99,8 +100,8 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', function (req, res) {
-   const customCity = req.body.cCity;
-   const customurl = 'https://api.openweathermap.org/data/2.5/weather?q=' + customCity + '&appid=027df142e5b67a54015b3e224ea626cb&units=metric';
+   let customCity = req.body.cCity;
+   let customurl = 'https://api.openweathermap.org/data/2.5/weather?q=' + customCity + '&appid=027df142e5b67a54015b3e224ea626cb&units=metric';
    https.get(customurl, (responsex) => {
       responsex.on('data', (data) => {
          customCityData = JSON.parse(data);
@@ -118,6 +119,6 @@ app.post('/', function (req, res) {
 
 
 // Litening app here
-app.listen(process.env.PORT || port, () => {
+app.listen(process.env.PORT || port,  () => {
    // console.log(`The server is running at http://${hostname}:${port}`);
 });
