@@ -14,6 +14,11 @@ app.set('view engine', 'ejs');
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use('/public', express.static('public'));
 
+var worldCities = []
+function randomCity(){
+   let x = Math.floor((Math.random() * 100) + 1);
+   return x;
+}
 
 const url0 = 'https://api.openweathermap.org/data/2.5/weather?q=london&appid=027df142e5b67a54015b3e224ea626cb&units=metric';
 const url1 = 'https://api.openweathermap.org/data/2.5/weather?q=delhi&appid=027df142e5b67a54015b3e224ea626cb&units=metric';
